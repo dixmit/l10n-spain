@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2025 Dixmit
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="delivery_carrier_form_view">
+        <field name="model">delivery.carrier</field>
+        <field name="inherit_id" ref="delivery.view_delivery_carrier_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page
+                    string="Integration"
+                    invisible="delivery_type != 'asigna' or integration_level != 'rate_and_ship'"
+                >
+                    <group>
+                        <field name="asigna_api_url" />
+                        <field name="asigna_api_user" />
+                        <field name="asigna_api_password" />
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
