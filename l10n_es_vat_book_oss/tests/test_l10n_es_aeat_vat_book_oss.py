@@ -40,7 +40,9 @@ class TestL10nEsAeatVatBookOss(TestL10nEsAeatVatBook):
         cls.accounts["700000"].write({"tax_ids": [(4, cls.general_tax.id)]})
 
     def test_model_vat_book_oss(self):
-        sp_fiscal_position = self.env.ref(f"account.{self.company.id}_fp_nacional")
+        sp_fiscal_position = self.env.ref(
+            f"account.{self.company.id}_l10n_es_domestic_fiscal_position"
+        )
         wizard_vals = {
             "company_id": self.company.id,
             "general_tax": self.general_tax.id,
